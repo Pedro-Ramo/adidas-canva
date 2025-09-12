@@ -1,1 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA - Site Oficial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #1d428a;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: #c8102e;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: #1d428a;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.1&auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Sections */
+        section {
+            padding: 50px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: #ffc72c;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: #ffc72c;
+        }
+        
+        /* Teams Section */
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .team-card {
+            background-color: #2c5282;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .team-card h3 {
+            margin-bottom: 10px;
+            color: #ffc72c;
+        }
+        
+        /* News Section */
+        .news-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .news-card {
+            background-color: #2a4365;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .news-content {
+            padding: 20px;
+        }
+        
+        .news-card h3 {
+            margin-bottom: 10px;
+            color: #ffc72c;
+        }
+        
+        .news-date {
+            color: #a0aec0;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Historical Data */
+        .history-content {
+            background-color: #2a4365;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .history-list {
+            list-style-type: none;
+        }
+        
+        .history-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #1d428a;
+            border-left: 4px solid #ffc72c;
+            border-radius: 4px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0c2c4d;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        footer p {
+            margin: 10px 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">SMBA6</div>
+            <nav>
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">SOUNT</a></li>
+                    <li><a href="#">T&B CINNAM</a></li>
+                    <li><a href="#">TRISSE</a></li>
+                    <li><a href="#">ARD...</a></li>
+                    <li><a href="#">THIRD STEAMS</a></li>
+                    <li><a href="#">PORT</a></li>
+                    <li><a href="#">FAMMA</a></li>
+                    <li><a href="#">COLLECTES</a></li>
+                    <li><a href="#">SHOP</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>NBA BASKETBALL</h1>
+            <p>A maior liga de basquete do mundo, com os melhores jogadores e equipes emocionantes</p>
+        </div>
+    </section>
+
+    <section id="teams">
+        <div class="container">
+            <h2 class="section-title">EQUIPES - SLIGNEINS</h2>
+            <div class="teams-grid">
+                <div class="team-card">
+                    <h3>Los Angeles Lakers</h3>
+                    <p>Conferência Oeste - Pacífico</p>
+                </div>
+                <div class="team-card">
+                    <h3>Boston Celtics</h3>
+                    <p>Conferência Leste - Atlântico</p>
+                </div>
+                <div class="team-card">
+                    <h3>Chicago Bulls</h3>
+                    <p>Conferência Leste - Central</p>
+                </div>
+                <div class="team-card">
+                    <h3>Golden State Warriors</h3>
+                    <p>Conferência Oeste - Pacífico</p>
+                </div>
+                <div class="team-card">
+                    <h3>Miami Heat</h3>
+                    <p>Conferência Leste - Sudeste</p>
+                </div>
+                <div class="team-card">
+                    <h3>Milwaukee Bucks</h3>
+                    <p>Conferência Leste - Central</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="news">
+        <div class="container">
+            <h2 class="section-title">NOTÍCIAS DA NBA</h2>
+            <div class="news-container">
+                <div class="news-card">
+                    <div class="news-content">
+                        <h3>Jogos de Playoff 2023</h3>
+                        <p class="news-date">Postado em 19 de Maio, 2023</p>
+                        <p>Confira os melhores momentos dos jogos de playoff da temporada 2022-2023 da NBA.</p>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-content">
+                        <h3>Novos Talentos</h3>
+                        <p class="news-date">Postado em 15 de Maio, 2023</p>
+                        <p>Conheça os rookies que estão se destacando nessa temporada e se tornando futuras estrelas.</p>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-content">
+                        <h3>Recordes Quebrados</h3>
+                        <p class="news-date">Postado em 10 de Maio, 2023</p>
+                        <p>Os recordes mais impressionantes que foram quebrados nesta temporada da NBA.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="history">
+        <div class="container">
+            <h2 class="section-title">DADOS HISTÓRICOS</h2>
+            <div class="history-content">
+                <ul class="history-list">
+                    <li>1946 - Fundação da NBA como BAA</li>
+                    <li>1950 - Primeiro jogo com jogadores afro-americanos</li>
+                    <li>1954 - Introdução do relógio de arremesso</li>
+                    <li>1976 - Fusão entre NBA e ABA</li>
+                    <li>1979 - Introdução da linha de três pontos</li>
+                    <li>1984 - Michael Jordan é draftado pelos Chicago Bulls</li>
+                    <li>1992 - Dream Team nas Olimpíadas de Barcelona</li>
+                    <li>2016 - Maior comeback nas finais da NBA (Cavaliers)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>BYOMA - Projects District</p>
+            <p>© 2023 SMBA6 - Todos os direitos reservados</p>
+            <p>Site não oficial da NBA para fins educacionais</p>
+        </div>
+    </footer>
+</body>
+</html>
 
